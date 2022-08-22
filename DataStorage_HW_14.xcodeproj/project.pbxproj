@@ -18,6 +18,8 @@
 		F62E1C39289F4953009443A9 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E1C38289F4953009443A9 /* Persistance.swift */; };
 		F62E1C3B289FD8FE009443A9 /* RealmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E1C3A289FD8FE009443A9 /* RealmVC.swift */; };
 		F62E1C3D289FD9DD009443A9 /* RealmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E1C3C289FD9DD009443A9 /* RealmCell.swift */; };
+		F62E1C6128A15B19009443A9 /* CoreDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E1C6028A15B19009443A9 /* CoreDataVC.swift */; };
+		F62E1C6328A15B3B009443A9 /* CoreDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E1C6228A15B3B009443A9 /* CoreDataCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		F62E1C38289F4953009443A9 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		F62E1C3A289FD8FE009443A9 /* RealmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmVC.swift; sourceTree = "<group>"; };
 		F62E1C3C289FD9DD009443A9 /* RealmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCell.swift; sourceTree = "<group>"; };
+		F62E1C6028A15B19009443A9 /* CoreDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataVC.swift; sourceTree = "<group>"; };
+		F62E1C6228A15B3B009443A9 /* CoreDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 				F62E1C38289F4953009443A9 /* Persistance.swift */,
 				F62E1C3A289FD8FE009443A9 /* RealmVC.swift */,
 				F62E1C3C289FD9DD009443A9 /* RealmCell.swift */,
+				F62E1C6028A15B19009443A9 /* CoreDataVC.swift */,
+				F62E1C6228A15B3B009443A9 /* CoreDataCell.swift */,
 				F62E1C25289F45EB009443A9 /* Main.storyboard */,
 				F62E1C2B289F45ED009443A9 /* Assets.xcassets */,
 				F62E1C2D289F45ED009443A9 /* LaunchScreen.storyboard */,
@@ -222,9 +228,11 @@
 				F62E1C22289F45EB009443A9 /* SceneDelegate.swift in Sources */,
 				F62E1C2A289F45EB009443A9 /* DataStorage_HW_14.xcdatamodeld in Sources */,
 				F62E1C3D289FD9DD009443A9 /* RealmCell.swift in Sources */,
+				F62E1C6328A15B3B009443A9 /* CoreDataCell.swift in Sources */,
 				F62E1C39289F4953009443A9 /* Persistance.swift in Sources */,
 				F62E1C3B289FD8FE009443A9 /* RealmVC.swift in Sources */,
 				F62E1C37289F4759009443A9 /* UserDefaultsVC.swift in Sources */,
+				F62E1C6128A15B19009443A9 /* CoreDataVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

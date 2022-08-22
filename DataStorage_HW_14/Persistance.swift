@@ -1,5 +1,6 @@
 import Foundation
 import RealmSwift
+import CoreData
 
 // UserDefaults
 class Persistance {
@@ -39,11 +40,25 @@ class Persistance {
         return tasks
     }
     
+    func deleteTaskRm(text: String) {
+        let task = Task()
+        task.taskText = text
+        try! realm.write {
+            realm.delete(task)
+        }
+    }
 }
 
 
 // Realm
 class Task: Object {
+//    @objc dynamic var id = 0
     @objc dynamic var taskText = ""
 }
+
+
+// CoreData
+//@objc class TaskCD: NSManagedObject {
+//    @NSManagedObject public var text: String?
+//}
 

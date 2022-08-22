@@ -24,7 +24,6 @@ class RealmVC: UIViewController {
             }
         }
     }
-    
 }
 
 
@@ -36,8 +35,17 @@ extension RealmVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "realmTasks") as! RealmCell
         cell.taskLabel.text = tasks[indexPath.row]
+        cell.id = indexPath.row
+        cell.delegate = self
         return cell
     }
-    
-    
+}
+
+
+extension RealmVC: RealmCellDelegate {
+    func deleteTask(id: Int) {
+        Persistance.shared.deleteTaskRm(text: tasks[id])
+        tasks.remove(at: id)
+        taskTableView.reloadData()
+    }
 }

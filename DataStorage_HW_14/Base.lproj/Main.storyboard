@@ -153,10 +153,10 @@
             </objects>
             <point key="canvasLocation" x="957.97101449275374" y="97.767857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Core DataVC-->
         <scene sceneID="7rM-Zp-fvu">
             <objects>
-                <viewController id="8oN-9H-v1f" sceneMemberID="viewController">
+                <viewController id="8oN-9H-v1f" customClass="CoreDataVC" customModule="DataStorage_HW_14" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i1C-ZU-R4w">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,13 +173,16 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Add">
                                     <color key="baseBackgroundColor" systemColor="systemPinkColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addTask:" destination="8oN-9H-v1f" eventType="touchUpInside" id="EB7-iK-USA"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IFu-eV-KEw">
                                 <rect key="frame" x="60" y="126" width="294" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QBj-sv-flh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CoreDataCell" id="QBj-sv-flh" customClass="CoreDataCell" customModule="DataStorage_HW_14" customModuleProvider="target">
                                         <rect key="frame" x="16" y="49.5" width="262" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QBj-sv-flh" id="Duv-n6-ibA">
@@ -199,6 +202,9 @@
                                                         <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
                                                         <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="doneTask:" destination="QBj-sv-flh" eventType="touchUpInside" id="YmL-jH-nSz"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -210,8 +216,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <connections>
+                                            <outlet property="taskLabel" destination="ZUP-QF-Xnc" id="cvL-6U-MNW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8oN-9H-v1f" id="Xgp-nn-1QP"/>
+                                    <outlet property="delegate" destination="8oN-9H-v1f" id="K7A-J5-3iC"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v9d-H2-kmA"/>
@@ -224,6 +237,10 @@
                             <constraint firstItem="v9d-H2-kmA" firstAttribute="trailing" secondItem="bzN-FO-uIA" secondAttribute="trailing" constant="60" id="yFq-jb-pK9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addTaskTextField" destination="1XQ-rB-fqn" id="bd2-0h-h4p"/>
+                        <outlet property="tasksTableView" destination="IFu-eV-KEw" id="qPF-wi-AhV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lN3-L1-ktS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
