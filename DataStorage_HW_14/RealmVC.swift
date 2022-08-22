@@ -6,7 +6,7 @@ class RealmVC: UIViewController {
     
     @IBOutlet weak var taskTableView: UITableView!
     
-    var tasks: [String] = []
+    var tasks: [Task] = []
     
     
     override func viewDidLoad() {
@@ -16,10 +16,12 @@ class RealmVC: UIViewController {
     
     
     @IBAction func addTaskButton(_ sender: Any) {
-        if let task = taskTextField.text {
-            if task != "" {
+        if let tasktxt = taskTextField.text {
+            if tasktxt != "" {
+                let task = Task()
+                task.taskText = tasktxt
                 tasks.append(task)
-                Persistance.shared.addTaskRM(text: task)
+                Persistance.shared.addTaskRM(task: task)
                 taskTableView.reloadData()
             }
         }
@@ -34,7 +36,7 @@ extension RealmVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "realmTasks") as! RealmCell
-        cell.taskLabel.text = tasks[indexPath.row]
+        cell.taskLabel.text = tasks[indexPath.row].taskText
         cell.id = indexPath.row
         cell.delegate = self
         return cell
@@ -44,7 +46,7 @@ extension RealmVC: UITableViewDelegate, UITableViewDataSource {
 
 extension RealmVC: RealmCellDelegate {
     func deleteTask(id: Int) {
-        Persistance.shared.deleteTaskRm(text: tasks[id])
+        Persistance.shared.deleteTaskRm(task: tasks[id])
         tasks.remove(at: id)
         taskTableView.reloadData()
     }

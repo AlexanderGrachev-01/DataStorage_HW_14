@@ -23,26 +23,22 @@ class Persistance {
     // Realm
     private let realm = try! Realm()
     
-    func addTaskRM(text: String) {
-        let task = Task()
-        task.taskText = text
+    func addTaskRM(task: Task) {
         try! realm.write {
             realm.add(task)
         }
     }
     
-    func getTasksRm() -> [String] {
+    func getTasksRm() -> [Task] {
         let allTasks = realm.objects(Task.self)
-        var tasks: [String] = []
+        var tasks: [Task] = []
         for task in allTasks {
-            tasks.append(task.taskText)
+            tasks.append(task)
         }
         return tasks
     }
     
-    func deleteTaskRm(text: String) {
-        let task = Task()
-        task.taskText = text
+    func deleteTaskRm(task: Task) {
         try! realm.write {
             realm.delete(task)
         }
@@ -52,7 +48,6 @@ class Persistance {
 
 // Realm
 class Task: Object {
-//    @objc dynamic var id = 0
     @objc dynamic var taskText = ""
 }
 
