@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 class CoreDataVC: UIViewController {
 
@@ -10,12 +11,14 @@ class CoreDataVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tasks = Persistance.shared.getTasksCD()
     }
     
     @IBAction func addTask(_ sender: Any) {
         if let task = addTaskTextField.text {
             if task != "" {
                 tasks.append(task)
+                Persistance.shared.addTaskCD(taskText: task)
                 tasksTableView.reloadData()
             }
         }
@@ -39,6 +42,7 @@ extension CoreDataVC: UITableViewDelegate, UITableViewDataSource {
 extension CoreDataVC: CoreDataCellDelegate {
     func deleteTask(id: Int) {
         tasks.remove(at: id)
+        Persistance.shared.deleteTaskCD(taskText: tasks[id])
         tasksTableView.reloadData()
     }
 }
