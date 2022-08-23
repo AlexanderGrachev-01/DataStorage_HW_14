@@ -59,14 +59,17 @@ class Persistance {
     
     
     // CoreData
+    let fethRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TaskCD")
+
+    
     func addTaskCD(taskText: String) {
         manegedObject.setValue(taskText, forKey: "text")
         appDelegate.saveContext()
     }
     
+    
     func getTasksCD() -> [String] {
         var tasks: [String] = []
-        let fethRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TaskCD")
         do {
             let results = try context.fetch(fethRequest)
             for result in results as! [NSManagedObject] {
@@ -79,7 +82,6 @@ class Persistance {
     }
     
     func deleteTaskCD(taskText: String) {
-        let fethRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TaskCD")
         do {
             let results = try context.fetch(fethRequest)
             for result in results as! [NSManagedObject] {

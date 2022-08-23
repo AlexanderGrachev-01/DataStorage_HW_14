@@ -17,8 +17,8 @@ class CoreDataVC: UIViewController {
     @IBAction func addTask(_ sender: Any) {
         if let task = addTaskTextField.text {
             if task != "" {
-                tasks.append(task)
                 Persistance.shared.addTaskCD(taskText: task)
+                tasks = Persistance.shared.getTasksCD()
                 tasksTableView.reloadData()
             }
         }
@@ -41,8 +41,8 @@ extension CoreDataVC: UITableViewDelegate, UITableViewDataSource {
 
 extension CoreDataVC: CoreDataCellDelegate {
     func deleteTask(id: Int) {
-        tasks.remove(at: id)
         Persistance.shared.deleteTaskCD(taskText: tasks[id])
+        tasks = Persistance.shared.getTasksCD()
         tasksTableView.reloadData()
     }
 }
