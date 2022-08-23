@@ -13,7 +13,7 @@ class Task: Object {
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
 let entityDescription = NSEntityDescription.entity(forEntityName: "TaskCD", in: context)
-let manegedObject = NSManagedObject(entity: entityDescription!, insertInto: context)
+//let manegedObject = NSManagedObject(entity: entityDescription!, insertInto: context)
 
 
 // UserDefaults
@@ -63,6 +63,7 @@ class Persistance {
 
     
     func addTaskCD(taskText: String) {
+        let manegedObject = NSManagedObject(entity: entityDescription!, insertInto: context)
         manegedObject.setValue(taskText, forKey: "text")
         appDelegate.saveContext()
     }
